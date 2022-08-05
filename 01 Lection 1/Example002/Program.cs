@@ -1,3 +1,5 @@
 ﻿// Ввести имя пользователя и поприветствовать его
+Console.Write("Введите ваше имя ");
 string userName = Console.ReadLine();
-Console.WriteLine("Привет, {userName}");
+Console.Write("Привет, ");
+Console.Write(userName);
