@@ -1,10 +1,15 @@
-﻿// Вывод последнией цифры 3х значного числа
-Console.WriteLine("Введите число >=100 и <1000....");
-
+﻿// Показываем все числа от -N до N
+Console.Write("Введите число...");
 int N = Convert.ToInt32(Console.ReadLine());
-if ((N >= 100) && (N < 1000))
+
+Console.WriteLine(N);
+int i = 0;
+if (N > 0) {i = -N;}
+if (N < 0) {i = N;}
+Console.WriteLine(i);
+while (i <= Math.Abs(N))
     {
-        int r = N % 10;
-        Console.WriteLine($"Последняя цифра равна...{r}");
+      Console.Write(i);
+      Console.Write(", ");  
+      i++;  
     }
-else  Console.WriteLine($"Некорректное число...{N}");       
