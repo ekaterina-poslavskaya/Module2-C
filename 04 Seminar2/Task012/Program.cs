@@ -5,5 +5,9 @@
 */
 int num1 = Convert.ToInt32(Console.ReadLine());
 int num2 = Convert.ToInt32(Console.ReadLine());
-if (num2 % num1 == 0) Console.WriteLine($"{num2} кратно {num1}");
-else Console.WriteLine($"Остаток от деления {num2} на {num1} равен {num2 % num1}");
+if (num1 != 0)
+    {
+        if (num2 % num1 == 0) Console.WriteLine($"{num2} кратно {num1}");
+        else Console.WriteLine($"Остаток от деления {num2} на {num1} равен {num2 % num1}");
+    }
+else Console.WriteLine($"Первое число равно 0, на 0 делить нельзя");        
