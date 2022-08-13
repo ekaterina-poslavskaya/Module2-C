@@ -11,5 +11,5 @@ double VectorScalar(int xA, int yA, int xB, int yB)
 
 }
 
-Console.WriteLine("{0:N2}",VectorScalar(3,6,2,1).ToString());
-Console.WriteLine("{0:N2}",VectorScalar(7,-5,1,-1).ToString());
+Console.WriteLine(VectorScalar(3,6,2,1).ToString());
+Console.WriteLine(VectorScalar(7,-5,1,-1).ToString());
