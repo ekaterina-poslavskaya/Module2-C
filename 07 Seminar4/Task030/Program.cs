@@ -5,9 +5,10 @@
 */
 void PrintArray(int[] A)
 {
-    Console.Write("массив: ");
+    Console.Write("массив: [");
     for (int i = 0; i < A.Length; i++)
         Console.Write($"{A[i]} ");
+    Console.Write("]");
 }
 
 void FillArray(int[] A, int minValue, int maxValue)
