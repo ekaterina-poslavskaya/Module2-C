@@ -24,12 +24,12 @@ int CountNumberDigitStr(int a)
 int CountNumberDigit(int a)
 {
     int result = 1;
-    while (a/10!=0)
-        {
-         result++;
-         a/=10;   
-        }
-    
+    while (a / 10 != 0)
+    {
+        result++;
+        a /= 10;
+    }
+
     return result;
 }
 
