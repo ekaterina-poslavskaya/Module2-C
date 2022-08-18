@@ -31,14 +31,19 @@ int SumNumberDigitStr(int a)
 int SumNumberDigit(int a)
 {
     int numberAbs = Convert.ToInt32(Math.Abs(a));
-    int result = numberAbs % 10;
-    if (numberAbs > 9)
+    int result = 0;
+    if (numberAbs <= 9)
+    { result += numberAbs % 10; }
+    else
+    //int result = numberAbs % 10;
+    //if (numberAbs > 9)
     {
         while (numberAbs / 10 != 0)
         {
             result += numberAbs % 10;
             numberAbs /= 10;
         }
+        result += numberAbs;
     }
     return result;
 }
