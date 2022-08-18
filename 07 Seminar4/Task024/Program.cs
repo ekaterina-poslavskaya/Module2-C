@@ -6,17 +6,17 @@
 */
 int SumA(int a)
 {
- int result =0;
+    int result = 0;
 
- for (int i = 1; i<=a; i++)
-    result+=i;
+    for (int i = 1; i <= a; i++)
+        result += i;
 
- return result;
+    return result;
 }
 
 void PrintSumA(int a)
 {
-Console.WriteLine($"Сумма чисел от 1 до {a} равна {SumA(a)}");
+    Console.WriteLine($"Сумма чисел от 1 до {a} равна {SumA(a)}");
 
 }
 
