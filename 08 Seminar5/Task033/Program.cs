@@ -40,7 +40,7 @@ int[] InitArray(int len, int minA = -999999999, int maxA = -999999999)
         {
             minRandom = ReadData("Введите нижнюю границу для генерации чисел...");
         }
-        
+
         int maxRandom = maxA;
         if (maxRandom == -999999999)
         {
@@ -64,9 +64,11 @@ int FindNumber(int[] arS, int num)
     int result = -1;
     for (int i = 0; i < arS.Length; i++)
     {
-        if (arS[i]==num)
-        {result = i;
-        break;};
+        if (arS[i] == num)
+        {
+            result = i;
+            break;
+        };
     }
     return result;
 }
@@ -75,10 +77,10 @@ int FindNumber(int[] arS, int num)
 int[] ar = InitArray(0);
 if (ar.Length > 0)
 {
-  int num = ReadData("Введите число для поиска...");
-   int pos = FindNumber(ar, num);
-   if (pos!=-1)
-    Console.WriteLine($"Число {num} находится на позиции {pos}");  
-   else 
-    Console.WriteLine($"Число {num} отсутствует в массиве");
+    int num = ReadData("Введите число для поиска...");
+    int pos = FindNumber(ar, num);
+    if (pos != -1)
+        Console.WriteLine($"Число {num} находится на позиции {pos}");
+    else
+        Console.WriteLine($"Число {num} отсутствует в массиве");
 }
