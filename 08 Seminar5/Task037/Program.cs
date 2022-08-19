@@ -1,12 +1,13 @@
 ﻿/*
-Задача 32: Напишите программу замена элементов массива: 
-положительные элементы замените на соответствующие 
-отрицательные, и наоборот.
-[-4, -8, 8, 2] -> [4, 8, -8, -2] 
+Задача 37: Найдите произведение пар чисел в одномерном массиве. 
+Парой считаем первый и последний элемент, второй и предпоследний 
+и т.д. Результат запишите в новом массиве.
+[1 2 3 4 5] -> 5 8 3
+[6 7 3 6] -> 36 21
 */
-void PrintArray(int[] A)
+void PrintArray(int[] A, string msgInBegin = "массив: ")
 {
-    Console.Write("массив: [");
+    Console.Write(msgInBegin + "[");
     for (int i = 0; i < A.Length; i++)
         Console.Write($"{A[i]} ");
     Console.Write("]");
@@ -62,18 +63,31 @@ int[] InitArray(int len, int minA = -999999999, int maxA = -999999999)
 }
 
 
-void InverseArray(int[] arS)
+int[] MultiplyElements(int[] arS)
 {
-    for (int i = 0; i < arS.Length; i++)
+    int ln = 0;
+    if (arS.Length % 2 == 0)
+        ln = arS.Length / 2;
+    else ln = arS.Length / 2 + 1;
+    int[] res = new int[ln];
+    for (int i = 0; i < arS.Length - 1 - i; i++)
     {
-        arS[i] *= -1;
+        res[i] = arS[i] * arS[arS.Length - 1 - i];
     }
+    if (arS.Length % 2 == 1)
+        res[arS.Length / 2 + 1 - 1] = arS[arS.Length / 2 + 1 - 1];//+1-1=0, 
+                                                                  //но специально не убираю, т.к. сначала считаем индекс 
+                                                                  //элемента как целое от деления+1 (т.к. знаем, что 
+                                                                  //тут нечетное число), а потом удаляем 1, тк. 
+                                                                  //индексация массива начинается с 0
+    return res;
 }
 
 
 int[] ar = InitArray(0);
 if (ar.Length > 0)
 {
-    InverseArray(ar);
-    PrintArray(ar);
+    int[] res = MultiplyElements(ar);
+    PrintArray(res, "массив с результатом умножения ");
+
 }

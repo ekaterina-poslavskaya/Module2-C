@@ -58,8 +58,10 @@ int[] InitArray(int len, int minA = -999999999, int maxA = -999999999)
     }
     else
     {
+        size = 0;//если размер меньше нуля указали или 0, то создаем нулевой массив и ругаемся
+        int[] array = new int[size];
         Console.WriteLine("Длина массива должна быть больше 0");
-        return null;
+        return array;//null;
     }
 }
 
@@ -69,7 +71,7 @@ int FindNumberFromInterval(int[] arS, int minNum, int maxNum)
     int result = 0;
     for (int i = 0; i < arS.Length; i++)
     {
-        if ((arS[i] <= maxNum) && (arS[i]>=minNum))
+        if ((arS[i] <= maxNum) && (arS[i] >= minNum))
         {
             result++;
         };
@@ -81,5 +83,5 @@ int FindNumberFromInterval(int[] arS, int minNum, int maxNum)
 int[] ar = InitArray(123);
 if (ar.Length > 0)
 {
-    Console.WriteLine($"Количество элементов из диапазона равно {FindNumberFromInterval(ar,10,99)}");
+    Console.WriteLine($"Количество элементов из диапазона равно {FindNumberFromInterval(ar, 10, 99)}");
 }

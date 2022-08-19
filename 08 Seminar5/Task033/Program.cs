@@ -53,8 +53,10 @@ int[] InitArray(int len, int minA = -999999999, int maxA = -999999999)
     }
     else
     {
+        size = 0;//если размер меньше нуля указали или 0, то создаем нулевой массив и ругаемся
+        int[] array = new int[size];
         Console.WriteLine("Длина массива должна быть больше 0");
-        return null;
+        return array;//null;
     }
 }
 
