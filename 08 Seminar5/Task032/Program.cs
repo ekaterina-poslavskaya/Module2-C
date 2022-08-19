@@ -41,7 +41,7 @@ int[] InitArray(int len, int minA = -999999999, int maxA = -999999999)
         {
             minRandom = ReadData("Введите нижнюю границу для генерации чисел...");
         }
-        
+
         int maxRandom = maxA;
         if (maxRandom == -999999999)
         {
@@ -64,7 +64,7 @@ void InverseArray(int[] arS)
 {
     for (int i = 0; i < arS.Length; i++)
     {
-        arS[i]*=-1;
+        arS[i] *= -1;
     }
 }
 
