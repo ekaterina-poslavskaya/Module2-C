@@ -26,7 +26,7 @@ int ReadData(string comm)
     return Convert.ToInt32(Console.ReadLine());
 }
 
-int[] InitArray(int len, int minA = -999999999, int maxA = -999999999)
+int[] InitArray(int len, int minA = Int32.MinValue, int maxA = Int32.MaxValue)
 {
     int size = len;
     if (size == 0)
@@ -38,13 +38,13 @@ int[] InitArray(int len, int minA = -999999999, int maxA = -999999999)
     {
         int[] array = new int[size];
         int minRandom = minA;
-        if (minRandom == -999999999)
+        if (minRandom == Int32.MinValue)
         {
             minRandom = ReadData("Введите нижнюю границу для генерации чисел...");
         }
 
         int maxRandom = maxA;
-        if (maxRandom == -999999999)
+        if (maxRandom == Int32.MaxValue)
         {
             maxRandom = ReadData("Введите верхнюю границу для генерации чисел...");
         }
