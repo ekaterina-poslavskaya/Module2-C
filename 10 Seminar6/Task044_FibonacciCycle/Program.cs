@@ -8,9 +8,9 @@
 
 
 using BasicArrFunc;
-namespace Task040
+namespace Task044
 {
-    public class Task040
+    public class Task044
     {
         static int[] FibonacciCycle(int num)
         {
