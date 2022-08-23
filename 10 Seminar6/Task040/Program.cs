@@ -10,9 +10,9 @@ namespace Task040
 {
     public class Task040
     {
-        static bool IsTriangle (int A, int B, int C)
+        static bool IsTriangle(int A, int B, int C)
         {
-            if ((A < B + C) && (B < A + C) && (C < A + B)) return true;
+            if ((A < B + C) && (B < A + C) && (C < A + B) && (A > 0) && (B > 0) && (C > 0)) return true;
             else return false;
         }
         static void Main(string[] args)
@@ -21,7 +21,7 @@ namespace Task040
             int B = clsBasicArrFunc.ReadData("Введите длину стороны B...");
             int C = clsBasicArrFunc.ReadData("Введите длину стороны C...");
 
-            if (IsTriangle(A,B,C))
+            if (IsTriangle(A, B, C))
                 Console.WriteLine($"Треугольник со сторонами {A}, {B}, {C} существует!");
             else
                 Console.WriteLine($"Треугольник со сторонами {A}, {B}, {C} НЕ существует!");
