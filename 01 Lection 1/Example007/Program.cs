@@ -14,9 +14,10 @@ Console.SetCursorPosition(xC,yC);
 Console.WriteLine("+");
 
 int x = xA, y = yA;
+
 int count = 0;
 
-while (count < 10000)
+while (count < 50000)
 {
  int what = new Random().Next(0, 3); //0, 1,2
  if (what==0)
