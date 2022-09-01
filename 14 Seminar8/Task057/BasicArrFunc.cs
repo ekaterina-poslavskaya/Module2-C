@@ -1,7 +1,9 @@
 ﻿//основные методы работы с массивами
-namespace BasicArrFunc
+using GeneralFunc;
+
+namespace Basic1DimArrFunc
 {
-    public class clsBasicArrFunc
+    public class clsBasic1DimArrFunc
     {
         // печать массива
         public static void PrintArray(int[] A, string msgInBegin = "массив: ")
@@ -20,21 +22,13 @@ namespace BasicArrFunc
                 A[i] = new Random().Next(minValue, maxValue);
         }
 
-        //считывание данных из консоли
-        public static int ReadData(string comm = "")
-        {
-            Console.Write(comm);
-            return Convert.ToInt32(Console.ReadLine());
-        }
-
         // инициализация и заполнение массива
         public static int[] InitArray(int len, int minA = Int32.MinValue, int maxA = Int32.MaxValue)
         {
             int size = len;
             if (size == 0)
             {
-                Console.Write("Введите длину массива...");
-                size = Convert.ToInt32(Console.ReadLine());
+                size = clsGeneralFunc.ReadIntData("Введите длину массива...");
             }
             if (size > 0)
             {
@@ -42,13 +36,13 @@ namespace BasicArrFunc
                 int minRandom = minA;
                 if (minRandom == Int32.MinValue)
                 {
-                    minRandom = ReadData("Введите нижнюю границу для генерации чисел...");
+                    minRandom = clsGeneralFunc.ReadIntData("Введите нижнюю границу для генерации чисел...");
                 }
 
                 int maxRandom = maxA;
                 if (maxRandom == Int32.MaxValue)
                 {
-                    maxRandom = ReadData("Введите верхнюю границу для генерации чисел...");
+                    maxRandom = clsGeneralFunc.ReadIntData("Введите верхнюю границу для генерации чисел...");
                 }
 
                 FillArray(array, minRandom, maxRandom + 1);
@@ -81,21 +75,13 @@ namespace BasicArrFunc
                 A[i] = (new Random().NextDouble()) * maxValue - minValue;
         }
 
-        //считывание данных из консоли
-        public static double ReadDoubleData(string comm = "")
-        {
-            Console.Write(comm);
-            return Convert.ToDouble(Console.ReadLine());
-        }
-
         // инициализация и заполнение массива
         public static double[] InitArray(int len, double minA = Int32.MinValue, double maxA = Int32.MaxValue)
         {
             int size = len;
             if (size == 0)
             {
-                Console.Write("Введите длину массива...");
-                size = Convert.ToInt32(Console.ReadLine());
+                size = clsGeneralFunc.ReadIntData("Введите длину массива...");
             }
             if (size > 0)
             {
@@ -103,13 +89,13 @@ namespace BasicArrFunc
                 double minRandom = minA;
                 if (minRandom == Int32.MinValue)
                 {
-                    minRandom = ReadDoubleData("Введите нижнюю границу для генерации чисел...");
+                    minRandom = clsGeneralFunc.ReadDoubleData("Введите нижнюю границу для генерации чисел...");
                 }
 
                 double maxRandom = maxA;
                 if (maxRandom == Int32.MaxValue)
                 {
-                    maxRandom = ReadDoubleData("Введите верхнюю границу для генерации чисел...");
+                    maxRandom = clsGeneralFunc.ReadDoubleData("Введите верхнюю границу для генерации чисел...");
                 }
 
                 FillArray(array, minRandom, maxRandom);

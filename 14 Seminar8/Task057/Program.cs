@@ -21,7 +21,7 @@
 
 */
 using Basic2DimArrFunc;
-using BasicArrFunc;
+using Basic1DimArrFunc;
 using GeneralFunc;
 
 public class clsTask57
@@ -35,12 +35,26 @@ public class clsTask57
                 if (max < arr[i, j]) max = arr[i, j];
         return max;
     }
+    private static int FindMaxIn1DimArr(int[] arr)
+    {
+        int max = arr[0];
+        for (int i = 1; i < arr.Length; i++)
+            if (max < arr[i]) max = arr[i];
+        return max;
+    }
     private static int FindMinIn2DimArr(int[,] arr)
     {
         int min = arr[0, 0];
         for (int i = 0; i < arr.GetLength(0); i++)
             for (int j = 0; j < arr.GetLength(1); j++)
                 if (min > arr[i, j]) min = arr[i, j];
+        return min;
+    }
+    private static int FindMinIn1DimArr(int[] arr)
+    {
+        int min = arr[0];
+        for (int i = 1; i < arr.Length; i++)
+            if (min > arr[i]) min = arr[i];
         return min;
     }
     static private void FrequentElementIn2DimArray()
@@ -54,7 +68,7 @@ public class clsTask57
                                                                       minA: Int32.MinValue,
                                                                       maxA: Int32.MaxValue);
 
-        if ((intArr.GetLength(0) > 0) && (intArr.GetLength(1) > 1))
+        if ((intArr.GetLength(0) > 0) && (intArr.GetLength(1) > 0))
         {
             int minValue = FindMinIn2DimArr(intArr);
             //Console.WriteLine($"Минимальное значение {minValue}");
@@ -88,10 +102,55 @@ public class clsTask57
         }
     }
 
+    static private void FrequentElementIn1DimArray()
+    {
+        //работа с двумерными массивами
+        int[] intArr = clsBasic1DimArrFunc.InitArray(len: 0,
+                                                    minA: Int32.MinValue,
+                                                    maxA: Int32.MaxValue);
+
+        if ((intArr.Length > 0) && (intArr.Length > 0))
+        {
+            int minValue = FindMinIn1DimArr(intArr);
+            //Console.WriteLine($"Минимальное значение {minValue}");
+            int maxValue = FindMaxIn1DimArr(intArr);
+            //Console.WriteLine($"Максимальное значение {maxValue}");
+            // создаем массив для всех значений из диапазона значений массива
+            int[] resArr = new int[maxValue - minValue + 1];
+            //обнуляем массив с результатами частотного анализа
+            for (int i = minValue; i < maxValue + 1; i++)
+            { resArr[i - minValue] = 0; }
+
+            for (int i = 0; i < intArr.Length; i++)
+            {
+                //Console.WriteLine($"Для значения intArr[{i}]={intArr[i]} записываем в индекс {intArr[i] - minValue}");
+                resArr[intArr[i] - minValue]++;
+            }
+
+            //а теперь выводим частоту встречаемых значений с поправкой на реальный 
+            //  диапазон значений (массив с 0 нумеруется, реальный диапазон может  
+            //  начинаться с отрицательного значения)
+            for (int i = 0; i < resArr.Length; i++)
+                if (resArr[i] > 0)
+                { Console.WriteLine($"Число {i + minValue} встречается {resArr[i]} раз"); }
+
+        }
+        else
+        {
+            int[] resArr = new int[0];
+            //return resArr;
+        }
+    }
 
     static void Main(string[] args)
     {
+        Console.WriteLine("***********************************************");
+        Console.WriteLine("Частотный анализ двумерного массива");
+        Console.WriteLine("***********************************************");
         FrequentElementIn2DimArray();
-
+        Console.WriteLine("***********************************************");
+        Console.WriteLine("Частотный анализ одномерного массива");
+        Console.WriteLine("***********************************************");
+        FrequentElementIn1DimArray();
     }
 }
